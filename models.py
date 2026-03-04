@@ -42,7 +42,7 @@ class IncidentForm:
         self.status = status
 
 
-class Notification:
+class Notifications:
     def __init__(self, notificationId, message, userId, createdDateTime, status):
         self.notificationId = notificationId
         self.message = message
