@@ -47,7 +47,6 @@ class Notifications:
         self.notificationId = notificationId
         self.message = message
         self.userId = userId
-        self.createdDateTime = createdDateTime
         self.status = status
 
 
