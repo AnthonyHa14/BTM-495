@@ -1,5 +1,5 @@
 class User:
-    def __init__(self, userId, firstName, lastName, phoneNumber, email, password, dob):
+    def __init__(self, userId,firstName, lastName,phoneNumber,email,password,dob):
         self.userId = userId
         self.firstName = firstName
         self.lastName = lastName
@@ -10,31 +10,29 @@ class User:
 
 
 class Employee(User):
-    def __init__(self, userId, firstName, lastName, phoneNumber, email, password, dob,
-                 department, employmentStatus, hourlyRate):
-        super().__init__(userId, firstName, lastName, phoneNumber, email, password, dob)
+    def __init__(self, userId, firstName, lastName, phoneNumber, email, password,dob, department, employmentStatus, hourlyRate):
+        super().__init__(userId, firstName,lastName, phoneNumber, email,password, dob)
         self.department = department
         self.employmentStatus = employmentStatus
         self.hourlyRate = hourlyRate
 
 
 class Manager(User):
-    def __init__(self, userId, firstName, lastName, phoneNumber, email, password, dob,
-                 permission, yearlySalary):
-        super().__init__(userId, firstName, lastName, phoneNumber, email, password, dob)
+    def __init__(self, userId,firstName, lastName, phoneNumber,email, password,dob, permission,yearlySalary):
+        super().__init__(userId, firstName,lastName, phoneNumber,email, password,dob)
         self.permission = permission
         self.yearlySalary = yearlySalary
 
 
 class Address:
-    def __init__(self, postalCode, streetName, province):
+    def __init__(self, postalCode,streetName, province):
         self.postalCode = postalCode
         self.streetName = streetName
         self.province = province
 
 
 class IncidentForm:
-    def __init__(self, incidentId, userId, date, description, status):
+    def __init__(self, incidentId,userId, date,description, status):
         self.incidentId = incidentId
         self.userId = userId
         self.date = date
@@ -42,16 +40,17 @@ class IncidentForm:
         self.status = status
 
 
-class Notifications:
-    def __init__(self, notificationId, message, userId, createdDateTime, status):
+class Notification:
+    def __init__(self,notificationId,message, userId, createdDateTime,status):
         self.notificationId = notificationId
         self.message = message
         self.userId = userId
+        self.createdDateTime = createdDateTime
         self.status = status
 
 
 class Schedule:
-    def __init__(self, scheduleId, weekStartDate, weekEndDate, scheduleStatus, departmentId, totalEmployeesPerDay):
+    def __init__(self, scheduleId,weekStartDate, weekEndDate, scheduleStatus,departmentId,totalEmployeesPerDay):
         self.scheduleId = scheduleId
         self.weekStartDate = weekStartDate
         self.weekEndDate = weekEndDate
@@ -61,16 +60,42 @@ class Schedule:
 
 
 class Shift:
-    def __init__(self, shiftId, shiftDayOfWeek, shiftStartTime, shiftEndTime):
+    def __init__(self, shiftId, shiftDayOfWeek,shiftStartTime,shiftEndTime):
         self.shiftId = shiftId
         self.shiftDayOfWeek = shiftDayOfWeek
         self.shiftStartTime = shiftStartTime
         self.shiftEndTime = shiftEndTime
 
 
+class Availability:
+    def __init__(self,availabilityId,employeeId, date, startTime,endTime,status):
+        self.availabilityId = availabilityId
+        self.employeeId = employeeId
+        self.date = date
+        self.startTime = startTime
+        self.endTime = endTime
+        self.status = status
+
+
+class Task:
+    def __init__(self, taskId, taskName,taskDescription, status,timeSpent, assignedDate):
+        self.taskId = taskId
+        self.taskName = taskName
+        self.taskDescription = taskDescription
+        self.status = status
+        self.timeSpent = timeSpent
+        self.assignedDate = assignedDate
+
+
 class Timesheet:
-    def __init__(self, timesheetId, shiftId, employeeId, totalHoursWorked):
+    def __init__(self,timesheetId,shiftId, employeeId,totalHoursWorked):
         self.timesheetId = timesheetId
         self.shiftId = shiftId
         self.employeeId = employeeId
         self.totalHoursWorked = totalHoursWorked
+
+
+class DatabaseManager:
+    def __init__(self, connectionString,isConnected):
+        self.connectionString = connectionString
+        self.isConnected = isConnected
